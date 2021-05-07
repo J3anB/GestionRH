@@ -7,11 +7,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 
 <!-- custome CSS -->
@@ -19,14 +22,18 @@
 <script type="javascript" src="js/manager.js"></script>
 
 <!--  jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<link rel="stylesheet"
+	href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
 <!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 <!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
@@ -57,10 +64,13 @@
 
 
 			<!-- Manager table Card -->
-			<h3>Ajouter Employee</h3>
+
 			<div class="card cardAddEmployee col-12 col-lg-6">
 				<div class="card-body">
 					<form action="">
+						<div class="input-group mb-3">
+							<h3>Ajouter <span>Employee</span></h3>
+						</div>
 						<div class="input-group mb-3">
 							<span class="input-group-text" id="basic-addon1">First
 								Name</span> <input type="text" class="form-control"
@@ -80,8 +90,8 @@
 						</div>
 						<div class="form-group">
 							<!-- Date input -->
-							<label class="control-label" type="date" for="date">Date de debut</label> <input
-								class="form-control" id="date" name="date"
+							<label class="control-label" type="date" for="date">Date
+								de debut</label> <input class="form-control" id="date" name="date"
 								placeholder="MM/DD/YYY" type="text" />
 						</div>
 						<div class="input-group mb-3">
@@ -110,18 +120,20 @@
 	</div>
 	<!-- end page -->
 
-							<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
-</script>
+	<script>
+		$(document).ready(
+				function() {
+					var date_input = $('input[name="date"]'); //our date input has the name "date"
+					var container = $('.bootstrap-iso form').length > 0 ? $(
+							'.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format : 'mm/dd/yyyy',
+						container : container,
+						todayHighlight : true,
+						autoclose : true,
+					})
+				})
+	</script>
 
 	<!-- Optional JavaScript; choose one of the two! -->
 

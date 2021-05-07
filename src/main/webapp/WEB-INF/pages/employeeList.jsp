@@ -42,10 +42,14 @@
 
 
 			<!-- Manager table Card -->
-			<h3>Employee List</h3>
+
 			<div class="card card-employee">
 				<div class="card-body">
-
+					<div class="input-group mb-3">
+						<h3>
+							<span>Employee </span>List
+						</h3>
+					</div>
 					<!-- Manager Table -->
 					<table class="table table-striped table-hover">
 						<thead>

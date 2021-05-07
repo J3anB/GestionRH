@@ -13,24 +13,35 @@
 .navbar{
  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }
+
+.flagDrop .dropdown-menu {
+	background: transparent;
+	border: transparent;
+}
 /* END NAVABAR */
 
 .card-manager{
+	font-family: 'Roboto', sans-serif;
 	margin-bottom:2%;
-	 box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }
 
+.card-manager h3 span{
+		color: #0080ff;
+}
   @media all and (max-device-width: 480px)
 {
   .card-manager{
     height: 60%;
+    font-family: 'Roboto', sans-serif;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: scroll;
   }
 }
 @media only screen and (max-device-width: 768px) {
   .card-manager{
-    height: 60%;
+	font-family: 'Roboto', sans-serif;
+	height: 60%;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: scroll;
   }

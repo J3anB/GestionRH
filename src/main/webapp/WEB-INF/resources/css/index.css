@@ -12,10 +12,17 @@
 /* NAVABAR */
 .navbar{
  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+ font-family: 'Roboto', sans-serif;
+}
+
+.flagDrop .dropdown-menu {
+	background: transparent;
+	border: transparent;
 }
 /* END NAVABAR */
 
 .homePageCard{
+	font-family: 'Roboto', sans-serif;
 	margin-bottom:2%;
 	 box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }
