@@ -1,5 +1,5 @@
 fr\formation\afpa\config\WebMvcConfig.class
-fr\formation\afpa\controller\IndexController.class
 fr\formation\afpa\config\ApplicationInitializer.class
 fr\formation\afpa\config\ApplicationConfigAdapter.class
 fr\formation\afpa\interceptor\LogInterceptor.class
+fr\formation\afpa\controller\MainController.class
