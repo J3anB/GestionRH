@@ -15,10 +15,17 @@
 
 /* NAVABAR */
 .navbar {
+	font-family: 'Roboto', sans-serif;
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.flagDrop .dropdown-menu {
+	background: transparent;
+	border: transparent;
 }
 /* END NAVABAR */
 .contactUsCard {
+		font-family: 'Roboto', sans-serif;
 	margin-bottom: 2%;
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }

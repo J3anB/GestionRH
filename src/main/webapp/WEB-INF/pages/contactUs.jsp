@@ -119,8 +119,8 @@
 										</div>
 										<!-- Form Submit -->
 										<div class="form-submit mt-5">
-											<button class="btn btn-outline-seconday" type="submit"
-												id="form-submit">Envoyer</button>
+											<a class="btn btn-outline-secondary" type="submit"
+												href="index" role="button">Envoyer</a>
 											<div id="msgSubmit" class="h3 text-center hidden"></div>
 											<div class="clearfix"></div>
 										</div>

@@ -1,3 +1,7 @@
+@import
+	url("https://fonts.googleapis.com/css?family=Rubik:500,700|Roboto:400,600")
+	;
+
 /* FOOTER */
 .content {
 	min-height: calc(100vh - 70px);
@@ -13,8 +17,16 @@
 .navbar {
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }
+
+.flagDrop .dropdown-menu {
+	font-family: 'Roboto', sans-serif;
+	background: transparent;
+	border: transparent;
+}
+
 /* END NAVABAR */
 .aboutUsCard {
+	font-family: 'Roboto', sans-serif;
 	margin-bottom: 2%;
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
 }

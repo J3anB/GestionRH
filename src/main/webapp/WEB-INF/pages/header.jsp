@@ -25,17 +25,16 @@
 					href="employeeList">Employee</a></li>
 				<li class="nav-item"><a class="nav-link " aria-current="page"
 					href="parametres">Parametres</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						🇫🇷 </a>
+				<li class="nav-item dropdown flagDrop"><a
+					class="nav-link dropdown-toggle active" href="#"
+					id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false"> 🇫🇷 </a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="#">🇬🇧</a></li>
 					</ul></li>
 			</ul>
 			<form class="d-flex">
 				<!-- Button trigger modal -->
-
 				<button type="button" class="btn btn-outline-primary"
 					data-bs-toggle="modal" data-bs-target="#loginBackdrop">Login</button>
 				<!-- 				<button type="button" class="btn btn-outline-secondary btn-sm"> -->

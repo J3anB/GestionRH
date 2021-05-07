@@ -7,7 +7,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<!-- FONT -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 <!-- custome CSS -->
 <link rel="stylesheet" type="text/css" href="styles/employeeList.css" />
 <script type="javascript" src="js/manager.js"></script>
@@ -39,13 +41,14 @@
 
 		<div class="content">
 
-
-
 			<!-- Manager table Card -->
-			<h3>Parametres Employee</h3>
 			<div class="card card-employee">
 				<div class="card-body">
-
+					<div class="input-group mb-3">
+						<h3>
+							Parametres<span> Employee </span>List
+						</h3>
+					</div>
 					<!-- Manager Table -->
 					<table class="table table-striped table-hover">
 						<thead>
@@ -65,7 +68,7 @@
 								<td>Cooper</td>
 								<td>Treasurer</td>
 								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-6"
+								<td><select class="form-select form-select-sm col-7"
 									aria-label=".form-select-sm example">
 										<option selected>Manager</option>
 										<option value="1">Alice Cooper</option>
@@ -79,7 +82,7 @@
 								<td>Cooper</td>
 								<td>Treasurer</td>
 								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-6"
+								<td><select class="form-select form-select-sm col-7"
 									aria-label=".form-select-sm example">
 										<option selected>Manager</option>
 										<option value="1">Alice Cooper</option>
@@ -95,7 +98,7 @@
 								<td>Cooper</td>
 								<td>Treasurer</td>
 								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-6"
+								<td><select class="form-select form-select-sm col-7"
 									aria-label=".form-select-sm example">
 										<option selected>Manager</option>
 										<option value="1">Alice Cooper</option>
@@ -110,7 +113,7 @@
 								<td>Cooper</td>
 								<td>Treasurer</td>
 								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-6"
+								<td><select class="form-select form-select-sm col-7"
 									aria-label=".form-select-sm example">
 										<option selected>Manager</option>
 										<option value="1">Alice Cooper</option>
@@ -121,8 +124,7 @@
 						</tbody>
 					</table>
 					<!-- End manager Table -->
-					<a class="btn btn-outline-primary" href="addEmployee" role="button">Ajouter
-						Employee</a>
+					<a class="btn btn-outline-primary " href="addEmployee" role="button">valider</a>
 
 				</div>
 			</div>

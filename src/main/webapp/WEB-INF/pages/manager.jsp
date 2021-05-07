@@ -42,14 +42,18 @@
 
 
 			<!-- Manager table Card -->
-			<h3>Managers List</h3>
+
 			<div class="card card-manager">
 				<div class="card-body">
-
+					<div class="input-group mb-3">
+						<h3>
+							  <span>Manager </span>List
+						</h3>
+					</div>
 					<!-- Manager Table -->
-					<table class="table table-striped table-bordered table-hover" data-toggle="table"
-						id="table" class="" data-detail-view="" data-pagination="true"
-						data-pagination-pre-text="< Previous"
+					<table class="table table-striped table-bordered table-hover"
+						data-toggle="table" id="table" class="" data-detail-view=""
+						data-pagination="true" data-pagination-pre-text="< Previous"
 						data-pagination-next-text="Next >"
 						data-classes="table table-hover table-condensed">
 						<thead>
@@ -73,48 +77,48 @@
 							</tr>
 							<!-- end main table 1 -->
 							<!-- subtable 1 -->
-							 <tr class="tabularinfo__subblock collapse row1">
-							<td colspan="12">
-							<table class="table table-striped  table-bordered table-hover">
-								<thead>
-									<tr>
-										<th data-field="id">ID</th>
-										<th data-field="firstName" scope="col">First name</th>
-										<th data-field="lastName" scope="col">Last Name</th>
-										<th data-field="title" scope="col">Title</th>
-										<th data-field="manager" scope="col">Manager</th>
+							<tr class="tabularinfo__subblock collapse row1">
+								<td colspan="12">
+									<table class="table table-striped  table-bordered table-hover">
+										<thead>
+											<tr>
+												<th data-field="id">ID</th>
+												<th data-field="firstName" scope="col">First name</th>
+												<th data-field="lastName" scope="col">Last Name</th>
+												<th data-field="title" scope="col">Title</th>
+												<th data-field="manager" scope="col">Manager</th>
 
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="collapse row1">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-									<tr class="collapse row1">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-									<tr class="collapse row1">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-								</tbody>
-							</table>
-							</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
 							</tr>
 							<!-- end subtable 1 -->
-							
-							
+
+
 							<!--  main table 2-->
 							<tr data-toggle="collapse" id="row2" data-target=".row2">
 								<th scope="row">2</th>
@@ -125,44 +129,44 @@
 							</tr>
 							<!-- end main table 1 -->
 							<!-- subtable 1 -->
-							 <tr class="tabularinfo__subblock collapse row2">
-							<td colspan="12">
-							<table class="table table-striped table-bordered table-hover">
-								<thead>
-									<tr>
-										<th data-field="id">ID</th>
-										<th data-field="firstName" scope="col">First name</th>
-										<th data-field="lastName" scope="col">Last Name</th>
-										<th data-field="title" scope="col">Title</th>
-										<th data-field="manager" scope="col">Manager</th>
+							<tr class="tabularinfo__subblock collapse row2">
+								<td colspan="12">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th data-field="id">ID</th>
+												<th data-field="firstName" scope="col">First name</th>
+												<th data-field="lastName" scope="col">Last Name</th>
+												<th data-field="title" scope="col">Title</th>
+												<th data-field="manager" scope="col">Manager</th>
 
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="collapse row2">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-									<tr class="collapse row2">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-									<tr class="collapse row2">
-										<th scope="row">6</th>
-										<td>Janis</td>
-										<td>Joplin</td>
-										<td>Treasurer</td>
-										<td>Mark Otto</td>
-									</tr>
-								</tbody>
-							</table>
-							</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
 							</tr>
 							<!-- end subtable 1 -->
 
