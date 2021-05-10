@@ -56,7 +56,7 @@
 								<!-- Section Titile -->
 								<div class="col-md-12 wow animated fadeInLeft"
 									data-wow-delay=".2s">
-									<h1 class="section-title">Nous aimerions avoir de vos avis</h1>
+									<h1 class="section-title">Nous aimerions avoir votre avis</h1>
 								</div>
 							</div>
 							<div class="row">

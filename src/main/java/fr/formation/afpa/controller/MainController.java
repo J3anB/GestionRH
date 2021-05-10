@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-	
+	// REDIRECT CONTROLLERS 
 	@GetMapping("/")
 	public String index() {
 		return "index";
@@ -48,5 +48,7 @@ public class MainController {
 	public String parametres() {
 		return "parametres";
 	}
+	
+	// END REDIRECT CONTROLLERS 
 	
 }
