@@ -6,7 +6,7 @@
 			<!-- Copyright -->
 			<div class="text-center p-3"
 				style="background-color: rgba(0, 0, 0, 0.2)">
-				Jean Berti Azar ❤ <a class="text-dark" href="#"></a>
+				made with ❤ by Jean Berti Azar <a class="text-dark" href="#"></a>
 			</div>
 
 		</footer>

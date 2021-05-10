@@ -1,0 +1,31 @@
+/* FOOTER */
+
+.content {
+  min-height: calc(100vh - 70px);
+  padding: 40px 40px 0 40px;
+}
+.footer {
+  height: 50px;
+}
+/* END FOOTER */
+
+/* NAVABAR */
+.navbar{
+ box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.flagDrop .dropdown-menu {
+	background: transparent;
+	border: transparent;
+}
+/* END NAVABAR */
+
+.cardAddEmployee{
+	font-family: 'Roboto', sans-serif;
+	margin-bottom:5%;
+	 box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.cardAddEmployee h3 span{
+	color: #0080ff;
+}

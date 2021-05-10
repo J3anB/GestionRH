@@ -33,7 +33,7 @@
 <body>
 	<div class="page">
 		<!-- Navbar -->
-	<jsp:include page="header.jsp" />  
+		<jsp:include page="header.jsp" />
 		<!-- End navbar -->
 
 
@@ -42,16 +42,20 @@
 
 
 			<!-- Manager table Card -->
-			<h3>Managers List</h3>
+
 			<div class="card card-manager">
 				<div class="card-body">
-
+					<div class="input-group mb-3">
+						<h3>
+							  <span>Manager </span>List
+						</h3>
+					</div>
 					<!-- Manager Table -->
-					<table class="table table-striped table-hover" id="table"
-						data-toggle="table" data-toolbar="#toolbar"
-						data-filter-control="true" data-show-footer="false"
-						data-detail-formatter="detailFormatter" data-detail-view="true"
-						data-hide-unused-select-options="true">
+					<table class="table table-striped table-bordered table-hover"
+						data-toggle="table" id="table" class="" data-detail-view=""
+						data-pagination="true" data-pagination-pre-text="< Previous"
+						data-pagination-next-text="Next >"
+						data-classes="table table-hover table-condensed">
 						<thead>
 							<tr>
 								<th data-field="id">ID</th>
@@ -59,56 +63,113 @@
 								<th data-field="lastName" scope="col">Last Name</th>
 								<th data-field="title" scope="col">Title</th>
 								<th data-field="manager" scope="col">Manager</th>
+
 							</tr>
 						</thead>
 						<tbody>
-<!-- 							<tr> -->
-<!-- 								<th><a class="nav-link" aria-current="page" -->
-<!-- 									href="managedEmployee">1</a></th> -->
-<!-- 								<td><a class="nav-link" aria-current="page" -->
-<!-- 									href="managedEmployee">Mark</a></td> -->
-<!-- 								<td><a class="nav-link" aria-current="page" -->
-<!-- 									href="managedEmployee">Otto</a></td> -->
-<!-- 								<td><a class="nav-link" aria-current="page" -->
-<!-- 									href="managedEmployee">Vice president</a></td> -->
-<!-- 								<td>/</td> -->
-<!-- 							</tr> -->
-							<tr>
-								<th scope="row"><a class="nav-link" aria-current="page"
-									href="managedEmployee">2</a></th>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Alice</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Cooper</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Treasurer</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Mark Otto</a></td>
+							<!--  main table 1-->
+							<tr data-toggle="collapse" id="row1" data-target=".row1">
+								<th scope="row">2</th>
+								<td>Alice</td>
+								<td>Cooper</td>
+								<td>Treasurer</td>
+								<td>Mark Otto</td>
 							</tr>
-							<tr>
-								<th scope="row"><a class="nav-link" aria-current="page"
-									href="managedEmployee">3</a></th>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Janis</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Joplin</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Operation Manager</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Mark Otto</a></td>
+							<!-- end main table 1 -->
+							<!-- subtable 1 -->
+							<tr class="tabularinfo__subblock collapse row1">
+								<td colspan="12">
+									<table class="table table-striped  table-bordered table-hover">
+										<thead>
+											<tr>
+												<th data-field="id">ID</th>
+												<th data-field="firstName" scope="col">First name</th>
+												<th data-field="lastName" scope="col">Last Name</th>
+												<th data-field="title" scope="col">Title</th>
+												<th data-field="manager" scope="col">Manager</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row1">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
 							</tr>
-							<tr>
-								<th scope="row"><a class="nav-link" aria-current="page"
-									href="managedEmployee">4</a></th>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Jimmy</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Hendrix</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Loan Manager</a></td>
-								<td><a class="nav-link" aria-current="page"
-									href="managedEmployee">Janis Joplin</a></td>
+							<!-- end subtable 1 -->
+
+
+							<!--  main table 2-->
+							<tr data-toggle="collapse" id="row2" data-target=".row2">
+								<th scope="row">2</th>
+								<td>Alice</td>
+								<td>Cooper</td>
+								<td>Treasurer</td>
+								<td>Mark Otto</td>
 							</tr>
+							<!-- end main table 1 -->
+							<!-- subtable 1 -->
+							<tr class="tabularinfo__subblock collapse row2">
+								<td colspan="12">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th data-field="id">ID</th>
+												<th data-field="firstName" scope="col">First name</th>
+												<th data-field="lastName" scope="col">Last Name</th>
+												<th data-field="title" scope="col">Title</th>
+												<th data-field="manager" scope="col">Manager</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+											<tr class="collapse row2">
+												<th scope="row">6</th>
+												<td>Janis</td>
+												<td>Joplin</td>
+												<td>Treasurer</td>
+												<td>Mark Otto</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<!-- end subtable 1 -->
+
 						</tbody>
 					</table>
 					<!-- End manager Table -->
@@ -121,9 +182,9 @@
 		<!-- end Container -->
 
 		<!-- footer -->
-	<jsp:include page="footer.jsp" />  
+		<jsp:include page="footer.jsp" />
 		<!-- End footer -->
-		
+
 
 	</div>
 	<!-- end page -->

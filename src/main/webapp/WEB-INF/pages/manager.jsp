@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -47,7 +48,7 @@
 				<div class="card-body">
 					<div class="input-group mb-3">
 						<h3>
-							  <span>Manager </span>List
+							<span>Manager </span>List
 						</h3>
 					</div>
 					<!-- Manager Table -->
@@ -139,7 +140,6 @@
 												<th data-field="lastName" scope="col">Last Name</th>
 												<th data-field="title" scope="col">Title</th>
 												<th data-field="manager" scope="col">Manager</th>
-
 											</tr>
 										</thead>
 										<tbody>
@@ -173,11 +173,9 @@
 						</tbody>
 					</table>
 					<!-- End manager Table -->
-
 				</div>
 			</div>
 			<!-- end Manager table card -->
-
 		</div>
 		<!-- end Container -->
 
