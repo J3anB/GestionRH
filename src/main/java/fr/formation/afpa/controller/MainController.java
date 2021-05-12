@@ -110,37 +110,49 @@ public class MainController {
 		return "redirect:/employeeList";
 	}
 
-	@GetMapping("/editEmployee")
-	public ModelAndView editEmployee(@RequestParam(name = "empID") Integer empID, Model model) {
-
+//	@GetMapping("/editEmployee")
+//	public ModelAndView editEmployee(@RequestParam(name = "empID") Integer empID, Model model) {
+//
+//		List<Employee> listMana = service.findManager();
+//		model.addAttribute("listMana", listMana);
+//		Employee edEmp = service.findById(empID);
+//		
+//		ModelAndView mav = new ModelAndView("editEmployee");
+//	
+//		log.debug(edEmp);
+////		model.addAttribute("employee", edEmp);
+//		mav.addObject("employee", edEmp);
+//		return mav;
+//	}	
+	
+	@GetMapping(path="/editEmployee")
+	public String editEmployee(Model model, @RequestParam(name="empID") Integer empID) {
+		
+		Employee employee = service.findById(empID);
+		model.addAttribute("employee", employee);
+		
 		List<Employee> listMana = service.findManager();
 		model.addAttribute("listMana", listMana);
 		
-		ModelAndView mav = new ModelAndView("editEmployee");
-	
-		Employee edEmp = service.findById(empID);
-		mav.addObject("employee", edEmp);
-		return mav;
+		return "editEmployee";
 	}
 
 	@PostMapping(path = "/update")
-	public String updateEmployee(@ModelAttribute("employee") Employee employee, Date date, BindingResult result,
+	public String updateEmployee(@ModelAttribute("employee") Employee employee, BindingResult result,
 			ModelMap model, @RequestParam(value = "supEmployee", required = false) Integer supEmployee) {
 		
-		// instance edited emp
-		Employee eddEmp = service.findById(employee.getEmpID());
-		Employee newMana = new Employee();
-		
-		newMana = service.findById(supEmployee);
-		
+		// find manager ID 
+		Employee newManaId = service.findById(supEmployee);
+			
 		// set attr
-		eddEmp.setFirstName(employee.getFirstName());
-		eddEmp.setLastName(employee.getLastName());
-		eddEmp.setTitle(employee.getTitle());
-		eddEmp.setStartDate(employee.getStartDate());
-		eddEmp.setSupEmployee(newMana);
+		employee.setFirstName(employee.getFirstName());
+		employee.setLastName(employee.getLastName());
+		employee.setTitle(employee.getTitle());
+		employee.setStartDate(employee.getStartDate());
+		employee.setSupEmployee(newManaId);
+		
 		// update
-		service.update(eddEmp);
+		service.update(employee);
 		
 		model.put("employee", service.findAll());
 		return "redirect:/employeeList";

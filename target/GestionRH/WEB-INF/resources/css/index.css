@@ -20,7 +20,9 @@
 	border: transparent;
 }
 /* END NAVABAR */
-
+.card-index{
+	margin-top:3%;
+}
 .homePageCard{
 	font-family: 'Roboto', sans-serif;
 	margin-bottom:2%;
