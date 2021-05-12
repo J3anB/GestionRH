@@ -58,11 +58,11 @@
 						<thead>
 							<tr>
 								<th data-sortable="true" data-field="id" data-field="id">ID</th>
-								<th data-sortable="true" data-field="firstName" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
-								<th data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
-								<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
-								<th data-sortable="true" data-field="startDater" scope="col"><spring:message code="employeelist.date" /></th>
-								<th data-sortable="true" data-field="manager" scope="col">Manager</th>
+								<th data-sortable="true" data-field="firstName"  data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+								<th data-sortable="true" data-field="lastName" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+								<th data-sortable="true" data-field="title"  data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
+								<th data-sortable="true" data-field="startDater"  data-field="startDater"scope="col"><spring:message code="employeelist.date" /></th>
+								<th data-sortable="true" data-field="manager" data-field="manager" scope="col">Manager</th>
 								<th data-field="action" scope="col">Action</th>
 							</tr>
 						</thead>

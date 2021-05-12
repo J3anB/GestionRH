@@ -97,11 +97,11 @@
 							<div class="input-group mb-3">
 
 							<form:select class="form-select form-select-sm col-7"
-								aria-label=".form-select-sm example" path="supEmployee">
-								<option value="0"><spring:message code="editemployee.manager" /></option>
-								<c:forEach var="supEmployee" items="${listMana}">
-									<option value="${supEmployee.empID}">
-										<c:out value="${supEmployee}" />
+							aria-label=".form-select-sm example" path="supEmployee"> 
+ 								<option value="0"><spring:message code="editemployee.manager" /></option> 
+								<c:forEach var="supEmployee" items="${listMana}"> 
+									<option value="${supEmployee.empID}"> 
+										<c:out value="${supEmployee}" /> 
 									</option>
 								</c:forEach>
 							</form:select>

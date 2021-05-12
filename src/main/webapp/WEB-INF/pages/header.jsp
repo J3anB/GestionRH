@@ -28,9 +28,9 @@
 				<li class="nav-item"><a class="nav-link " aria-current="page"
 					href="parametres"><spring:message code="navbar.parametres" /></a></li>
 				<li class="nav-item"><a class="nav-link " aria-current="page"
-					href="${pageContext.request.contextPath }?lang=fr"> 🇫🇷</a></li>
+					href="?lang=fr"> 🇫🇷</a></li>
 				<li class="nav-item"><a class="nav-link " aria-current="page"
-					href="${pageContext.request.contextPath }?lang=en"> 🇬🇧</a></li>
+					href="?lang=en"> 🇬🇧</a></li>
 			</ul>
 			<form class="d-flex">
 				<!-- Button trigger modal -->

@@ -40,7 +40,7 @@
 		<div class="content">
 
 			<!-- 		WELCOME CARD -->
-			<div class="row">
+			<div class="row card-index">
 				<div class="card homePageCard col-12 col-lg-6">
 					<div class="card-body">
 
@@ -78,7 +78,7 @@
 					</div>
 
 				</div>
-				<div class="card card-coffe col-12 col-lg-3">
+				<div class="card card-coffe col-6 col-lg-3">
 					<div class="card-body">
 					
 							<div class="coffee-header">
@@ -121,26 +121,24 @@
 						<div class="modal-body">
 							<form>
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Email
-										address</label> <input type="email" class="form-control"
+									<label for="exampleInputEmail1" class="form-label"><spring:message code="login.email" /></label> <input type="email" class="form-control"
 										id="exampleInputEmail1" aria-describedby="emailHelp">
-									<div id="emailHelp" class="form-text">We'll never share
-										your email with anyone else.</div>
+									<div id="emailHelp" class="form-text"><spring:message code="login.text" /></div>
 								</div>
 								<div class="mb-3">
-									<label for="exampleInputPassword1" class="form-label">Password</label>
+									<label for="exampleInputPassword1" class="form-label"><spring:message code="login.password" /></label>
 									<input type="password" class="form-control"
 										id="exampleInputPassword1">
 								</div>
 								<div class="mb-3 form-check">
 									<input type="checkbox" class="form-check-input"
 										id="exampleCheck1"> <label class="form-check-label"
-										for="exampleCheck1">Check me out</label>
+										for="exampleCheck1"><spring:message code="login.check" /></label>
 								</div>
 								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">Close</button>
+									data-bs-dismiss="modal"><spring:message code="login.close" /></button>
 								<a class="btn btn-primary" href="managerList" type="submit "
-									role="button">Login</a>
+									role="button"><spring:message code="login.login" /></a>
 							</form>
 						</div>
 					</div>
