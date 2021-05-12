@@ -31,46 +31,74 @@ public class EmployeeService implements IEmployeeService {
 
 	@Override
 	public Employee findById(Integer id) {
+		dao.beginTransaction();
+		Employee emp = dao.findById(id);
+		dao.commitAndCloseTransaction();
+		return emp;
+	}
+	
+	@Override
+	public Employee findAndDeleteById(Integer id) {
 		Employee emp = dao.findById(id);
 		return emp;
 	}
-
+	
 	@Override
 	public List<Employee> findAll() {
+		dao.beginTransaction();
 		List<Employee> list = dao.findAll();
+		dao.commitAndCloseTransaction();
 		return list;
 	}
 
 	@Override
 	public List<Employee> findManager() {
-		List<Employee> listMana = dao.findManager();
-		return listMana;
+		dao.beginTransaction();
+		List<Employee> list = dao.findManager();
+		dao.commitAndCloseTransaction();
+		return list;
 	}
 
 	@Override
+	public List<Employee> findOrphans() {
+		dao.beginTransaction();
+		List<Employee> list = dao.findOrphans();
+		dao.commitAndCloseTransaction();
+		return list;
+	}
+	
+	
+	@Override
 	public Employee save(Employee e) {
+		dao.beginTransaction();
 		dao.save(e);
+		dao.commitAndCloseTransaction();
 		return e;
 	}
 
 	@Override
 	public Employee update(Employee e) {
+		dao.beginTransaction();
 		dao.update(e);
+		dao.commitTransaction();
 		return e;
-
 	}
 
 	@Override
 	public void delete(Employee e) {
+
 		dao.delete(e);
 
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		delete(findById(id));
-
+		dao.beginTransaction();
+		delete(findAndDeleteById(id));
+		dao.commitTransaction();
 	}
+
+
 
 
 

@@ -19,7 +19,6 @@ public class Customer implements java.io.Serializable {
 	private Set accounts = new HashSet(0);
 	private Set comptes = new HashSet(0);
 	private Individual individual;
-	private Business business;
 	private Set officers = new HashSet(0);
 
 	public Customer() {
@@ -31,7 +30,7 @@ public class Customer implements java.io.Serializable {
 	}
 
 	public Customer(String address, String city, String custTypeCd, String fedId, String postalCode, String state,
-			Set accounts, Set comptes, Individual individual, Business business, Set officers) {
+			Set accounts, Set comptes, Individual individual, Set officers) {
 		this.address = address;
 		this.city = city;
 		this.custTypeCd = custTypeCd;
@@ -41,7 +40,7 @@ public class Customer implements java.io.Serializable {
 		this.accounts = accounts;
 		this.comptes = comptes;
 		this.individual = individual;
-		this.business = business;
+
 		this.officers = officers;
 	}
 
@@ -125,14 +124,7 @@ public class Customer implements java.io.Serializable {
 		this.individual = individual;
 	}
 
-	public Business getBusiness() {
-		return this.business;
-	}
-
-	public void setBusiness(Business business) {
-		this.business = business;
-	}
-
+	
 	public Set getOfficers() {
 		return this.officers;
 	}

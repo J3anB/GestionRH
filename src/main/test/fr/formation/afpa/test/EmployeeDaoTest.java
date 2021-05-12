@@ -1,6 +1,7 @@
 package fr.formation.afpa.test;
 
 import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
@@ -29,12 +30,7 @@ public class EmployeeDaoTest {
 		em = emf.createEntityManager();
 	}
 	
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		em.getTransaction().begin();
-		log.debug("begin transaction");
-	}
-	
+
 	
 	@Test
 	public void testFindById() {
@@ -44,7 +40,7 @@ public class EmployeeDaoTest {
     	emp.setLastName("Polo");
     	emp.setStartDate(new Date());
     	em.persist(emp);
-    	Integer idInsert = emp.getEmpId();
+    	Integer idInsert = emp.getEmpID();
     	Employee e = em.find(Employee.class, idInsert);
 		assertNotNull(e);
 		assertEquals(e.getFirstName(), emp.getFirstName());
@@ -56,9 +52,21 @@ public class EmployeeDaoTest {
 		List<Employee> list  = em.createQuery("select e from Employee e").getResultList();
 			for(Employee emp : list) {
 				log.debug(emp);
+				assertNotNull(emp);
 			}
 	}
+	
+	
+//	@Test
+//	public void testFindManager() {
+//		 List<Employee> list = em.createQuery("select distinct manager from Employee superior_emp").getResultList();
+//		 for(Employee mana : list ) {
+//			 log.debug(mana);
+//			 assertNotNull(mana);
+//		 }
+//	}
 
+	
 	@Test
 	public void testSave() {
 		Employee emp = new Employee();
@@ -66,7 +74,7 @@ public class EmployeeDaoTest {
     	emp.setLastName("Polo");
     	emp.setStartDate(new Date());
     	em.persist(emp);    	
-    	Integer idInsert = emp.getEmpId();
+    	Integer idInsert = emp.getEmpID();
     	log.debug("IdInsert  :" + idInsert);
     	assertNotNull("Id not null",idInsert);
 	}
@@ -78,7 +86,7 @@ public class EmployeeDaoTest {
     	emp.setLastName("Polo");
     	emp.setStartDate(new Date());
     	em.persist(emp); 
-    	Integer idInsert = emp.getEmpId();
+    	Integer idInsert = emp.getEmpID();
     	emp.setFirstName("Alice");    	
 		Employee empUpdate = em.merge(emp);
 		assertNotNull(empUpdate);
@@ -93,7 +101,7 @@ public class EmployeeDaoTest {
     	emp.setLastName("Polo");
     	emp.setStartDate(new Date());
     	em.persist(emp); 
-    	Integer idInsert = emp.getEmpId();
+    	Integer idInsert = emp.getEmpID();
     	emp.setFirstName("Alice");    	
 		Employee empUpdate = em.merge(emp);
 		assertNotNull(empUpdate);
@@ -108,12 +116,18 @@ public class EmployeeDaoTest {
     	emp.setLastName("Cooper");
     	emp.setStartDate(new Date());
     	em.persist(emp); 
-  	    Integer idInsert = emp.getEmpId();
+  	    Integer idInsert = emp.getEmpID();
  	    log.info("ID Employee Insert : " +idInsert);
  	    em.remove(emp);
  	    Employee empInsert = em.find(Employee.class, idInsert);
  	    assertNotNull(idInsert);
 	}
-
+	
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		em.getTransaction().begin();
+		log.debug("begin transaction");
+	}
+	
 
 }

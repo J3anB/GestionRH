@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -47,137 +49,42 @@
 				<div class="card-body">
 					<div class="input-group mb-3">
 						<h3>
-							  <span>Manager </span>List
+							<span>Manager </span>List
 						</h3>
 					</div>
 					<!-- Manager Table -->
-					<table class="table table-striped table-bordered table-hover"
-						data-toggle="table" id="table" class="" data-detail-view=""
-						data-pagination="true" data-pagination-pre-text="< Previous"
-						data-pagination-next-text="Next >"
-						data-classes="table table-hover table-condensed">
+					<table class="table table-striped table-hover " data-toggle="table"
+						data-search="true" data-show-columns="true" data-pagination="true">
 						<thead>
 							<tr>
-								<th data-field="id">ID</th>
-								<th data-field="firstName" scope="col">First name</th>
-								<th data-field="lastName" scope="col">Last Name</th>
-								<th data-field="title" scope="col">Title</th>
-								<th data-field="manager" scope="col">Manager</th>
-
+								<th data-sortable="true" data-field="id" data-field="id">ID</th>
+								<th data-sortable="true" data-field="firstName"
+									data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+								<th data-sortable="true" data-field="lastName"
+									data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+								<th data-sortable="true" data-field="title" data-field="title"
+									scope="col"><spring:message code="employeelist.titre" /></th>
+								<th data-sortable="true" data-field="startDater" scope="col"><spring:message code="employeelist.date" /></th>
+								<!-- <th data-field="manager" scope="col">Manager</th> -->
 							</tr>
 						</thead>
-						<tbody>
-							<!--  main table 1-->
-							<tr data-toggle="collapse" id="row1" data-target=".row1">
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-							</tr>
-							<!-- end main table 1 -->
-							<!-- subtable 1 -->
-							<tr class="tabularinfo__subblock collapse row1">
-								<td colspan="12">
-									<table class="table table-striped  table-bordered table-hover">
-										<thead>
-											<tr>
-												<th data-field="id">ID</th>
-												<th data-field="firstName" scope="col">First name</th>
-												<th data-field="lastName" scope="col">Last Name</th>
-												<th data-field="title" scope="col">Title</th>
-												<th data-field="manager" scope="col">Manager</th>
-
-											</tr>
-										</thead>
-										<tbody>
-											<tr class="collapse row1">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-											<tr class="collapse row1">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-											<tr class="collapse row1">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<!-- end subtable 1 -->
-
-
-							<!--  main table 2-->
-							<tr data-toggle="collapse" id="row2" data-target=".row2">
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-							</tr>
-							<!-- end main table 1 -->
-							<!-- subtable 1 -->
-							<tr class="tabularinfo__subblock collapse row2">
-								<td colspan="12">
-									<table class="table table-striped table-bordered table-hover">
-										<thead>
-											<tr>
-												<th data-field="id">ID</th>
-												<th data-field="firstName" scope="col">First name</th>
-												<th data-field="lastName" scope="col">Last Name</th>
-												<th data-field="title" scope="col">Title</th>
-												<th data-field="manager" scope="col">Manager</th>
-
-											</tr>
-										</thead>
-										<tbody>
-											<tr class="collapse row2">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-											<tr class="collapse row2">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-											<tr class="collapse row2">
-												<th scope="row">6</th>
-												<td>Janis</td>
-												<td>Joplin</td>
-												<td>Treasurer</td>
-												<td>Mark Otto</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<!-- end subtable 1 -->
-
+							<tbody>
+						<c:forEach var="listMana" items="${listMana}">
+								<!--  main table 1-->
+								<tr>
+									<td><c:out value="${listMana.empID}" /></td>
+									<td><c:out value="${listMana.firstName}" /></td>
+									<td><c:out value="${listMana.lastName}" /></td>
+									<td><c:out value="${listMana.title}" /></td>
+									<td><c:out value="${listMana.startDate}" /></td>
+								</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 					<!-- End manager Table -->
-
 				</div>
 			</div>
 			<!-- end Manager table card -->
-
 		</div>
 		<!-- end Container -->
 
@@ -209,7 +116,17 @@
 	<script
 		src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
 
-
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 	<!-- Option 2: Separate Popper and Bootstrap JS -->
 	<!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
