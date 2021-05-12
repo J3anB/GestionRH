@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +12,9 @@
 
 <!-- FONT -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet">
 <!-- custome CSS -->
 <link rel="stylesheet" type="text/css" href="styles/employeeList.css" />
 <script type="javascript" src="js/manager.js"></script>
@@ -49,87 +54,47 @@
 							Parametres<span> Employee </span>List
 						</h3>
 					</div>
-					<!-- Manager Table -->
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th data-field="id">ID</th>
-								<th data-field="firstName" scope="col">First name</th>
-								<th data-field="lastName" scope="col">Last Name</th>
-								<th data-field="title" scope="col">Title</th>
-								<th data-field="manager" scope="col">Manager</th>
-								<th data-field="action" scope="col">Manager</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-7"
-									aria-label=".form-select-sm example">
-										<option selected>Manager</option>
-										<option value="1">Alice Cooper</option>
-										<option value="2">Janis Joplin</option>
-										<option value="3">Marco Polo</option>
-								</select></td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-7"
-									aria-label=".form-select-sm example">
-										<option selected>Manager</option>
-										<option value="1">Alice Cooper</option>
-										<option value="2">Janis Joplin</option>
-										<option value="3">Marco Polo</option>
-								</select></td>
-							</tr>
+					<!-- Employee Table -->
+					<form:form>
+						<table class="table table-striped table-hover" data-toggle="table"
+						data-search="true" data-show-columns="true" data-pagination="true">
+							<thead>
+								<tr>
+									<th data-sortable="true" data-field="id">ID</th>
+									<th  data-sortable="true" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+									<th  data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+									<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
+									<th data-sortable="true" data-field="manager" scope="col"><spring:message code="employeelist.date" /></th>
+									<th data-sortable="true" data-field="action" scope="col">Action</th>
+								</tr>
+							</thead>
 
+							<tbody>
+								<c:forEach var="listOprh" items="${listOprh}">
+									<tr>
+										<td><c:out value="${listOprh.empID}" /></td>
+										<td><c:out value="${listOprh.firstName}" /></td>
+										<td><c:out value="${listOprh.lastName}" /></td>
+										<td><c:out value="${listOprh.title}" /></td>
+										<td><c:out value="${listOprh.startDate}" /></td>
+										<td><select class="form-select form-select-sm col-7"
+											aria-label=".form-select-sm example">
+												<option selected>Manager</option>
+												<c:forEach var="listMana" items="${listMana}">
+													<option value=""><c:out
+															value="${listMana.firstName} ${listMana.lastName}" /></option>
+												</c:forEach>
+										</select></td>
+									</tr>
+								</c:forEach>
 
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-7"
-									aria-label=".form-select-sm example">
-										<option selected>Manager</option>
-										<option value="1">Alice Cooper</option>
-										<option value="2">Janis Joplin</option>
-										<option value="3">Marco Polo</option>
-								</select></td>
-							</tr>
-
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><select class="form-select form-select-sm col-7"
-									aria-label=".form-select-sm example">
-										<option selected>Manager</option>
-										<option value="1">Alice Cooper</option>
-										<option value="2">Janis Joplin</option>
-										<option value="3">Marco Polo</option>
-								</select></td>
-							</tr>
-						</tbody>
-					</table>
-					<!-- End manager Table -->
-					<a class="btn btn-outline-primary " href="addEmployee" role="button">valider</a>
-
+							</tbody>
+						</table>
+						<a class="btn btn-outline-primary" href="parametres"
+							role="button"> update</a>
+					</form:form>
 				</div>
 			</div>
-			<!-- end Manager table card -->
-
 		</div>
 		<!-- end Container -->
 
@@ -161,7 +126,17 @@
 	<script
 		src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
 
-
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 	<!-- Option 2: Separate Popper and Bootstrap JS -->
 	<!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -169,3 +144,6 @@
     -->
 </body>
 </html>
+
+
+

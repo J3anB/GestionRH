@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -63,50 +66,55 @@
 
 
 
-			<!-- Manager table Card -->
+			<!-- ADD EMPLOYEE -->
+
 			<div class="card cardAddEmployee col-12 col-lg-6">
 				<div class="card-body">
-					<form action="">
+
+					<form:form action="update" method="post" modelAttribute="employee">
 						<div class="input-group mb-3">
-							<h3>Modifier <span>Employee</span> </h3>
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">First
-								Name</span> <input type="text" class="form-control"
-								placeholder="Prenom" aria-label="Prenom"
-								aria-describedby="basic-addon1">
+							<h3>
+								<spring:message code="editemployee.title" /> <span>Employee</span>
+							</h3>
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">Last Name</span>
-							<input type="text" class="form-control"
-								placeholder="Nom de famille" aria-label="Nom de famille"
-								aria-describedby="basic-addon1">
+							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.prenom" /></span>
+							<form:input type="text" class="form-control" path="firstName" />
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1">Titre</span> <input
-								type="text" class="form-control" placeholder="Titre"
-								aria-label="Titre" aria-describedby="basic-addon1">
-						</div>
-						<div class="form-group">
-							<!-- Date input -->
-							<label class="control-label" type="date" for="date">Date
-								de debut</label> <input class="form-control" id="date" name="date"
-								placeholder="MM/DD/YYY" type="text" />
+							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.nom" /></span>
+							<form:input type="text" class="form-control" path="lastName" />
 						</div>
 						<div class="input-group mb-3">
-							<select class="form-select" aria-label="Default select example">
-								<option selected>Selectionner Manager</option>
-								<option value="1">Marco Polo</option>
-								<option value="2">Alice Cooper</option>
-								<option value="3">Janis Joplin</option>
-							</select>
+							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.titre" /></span>
+							<form:input type="text" class="form-control" placeholder="Titre"
+								aria-label="Titre" aria-describedby="basic-addon1" path="title" />
 						</div>
-						<a class="btn btn-outline-primary" type="submit"
-							href="employeeList" role="button">Valider</a>
-					</form>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.startdate" /></span>
+							<form:input type="date" class="form-control" path="startDate" />
+						</div>
+							<div class="input-group mb-3">
+
+							<form:select class="form-select form-select-sm col-7"
+								aria-label=".form-select-sm example" path="supEmployee">
+								<option value="0"><spring:message code="editemployee.manager" /></option>
+								<c:forEach var="supEmployee" items="${listMana}">
+									<option value="${supEmployee.empID}">
+										<c:out value="${supEmployee}" />
+									</option>
+								</c:forEach>
+							</form:select>
+							
+						</div>
+
+						<td colspan="2"><input class="btn btn-outline-primary"
+							type="submit" value="save"></td>
+						<!--  <a class="btn btn-outline-primary" type="submit" >Valider</a> -->
+					</form:form>
 				</div>
 			</div>
-			<!-- end Manager table card -->
+			<!-- end ADD EMPLOYEE -->
 
 		</div>
 		<!-- end Container -->
@@ -119,20 +127,6 @@
 	</div>
 	<!-- end page -->
 
-	<script>
-		$(document).ready(
-				function() {
-					var date_input = $('input[name="date"]'); //our date input has the name "date"
-					var container = $('.bootstrap-iso form').length > 0 ? $(
-							'.bootstrap-iso form').parent() : "body";
-					date_input.datepicker({
-						format : 'mm/dd/yyyy',
-						container : container,
-						todayHighlight : true,
-						autoclose : true,
-					})
-				})
-	</script>
 
 	<!-- Optional JavaScript; choose one of the two! -->
 

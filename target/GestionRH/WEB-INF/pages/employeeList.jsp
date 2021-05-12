@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -50,71 +52,46 @@
 							<span>Employee </span>List
 						</h3>
 					</div>
-					<!-- Manager Table -->
-					<table class="table table-striped table-hover">
+					<!-- Employee Table -->
+					<table class="table table-striped table-hover" data-toggle="table"
+						data-search="true" data-show-columns="true" data-pagination="true">
 						<thead>
 							<tr>
 								<th data-field="id">ID</th>
-								<th data-field="firstName" scope="col">First name</th>
-								<th data-field="lastName" scope="col">Last Name</th>
-								<th data-field="title" scope="col">Title</th>
+								<th data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+								<th data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+								<th data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
+								<th data-field="startDate" scope="col"><spring:message code="employeelist.date" /></th>
 								<th data-field="manager" scope="col">Manager</th>
 								<th data-field="action" scope="col">Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-
-
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-						</tbody>
+							<tbody>
+						<c:forEach var="list" items="${list}">
+								<tr>
+									<td><c:out value="${list.empID}" /></td>
+									<td><c:out value="${list.firstName}" /></td>
+									<td><c:out value="${list.lastName}" /></td>
+									<td><c:out value="${list.title}" /></td>
+									<td><c:out value="${list.startDate}" /></td>
+									<td><c:out value="${list.supEmployee}" /></td>
+									<td><a class="btn btn-outline-secondary btn-sm"
+										href="editEmployee?empID=${list.empID}" role="button"><spring:message code="employeelist.edit" /></a>
+										<input id="empID" name="empID" type="hidden"
+										value="${list.empID}" /> <a
+										class="btn btn-outline-secondary btn-sm"
+										href="delete?empID=${list.empID}"> <spring:message code="employeelist.delete" /></a> <input
+										id="empID" name="empID" type="hidden" value="${list.empID}" />
+								</tr>
+						</c:forEach>
+							</tbody>
 					</table>
-					<!-- End manager Table -->
-					<a class="btn btn-outline-primary" href="addEmployee" role="button">Ajouter
-						Employee</a>
+					<!-- End Employee Table -->
+					<a class="btn btn-outline-primary" href="addEmployee" role="button"><spring:message code="employee.ajout" /></a>
 
 				</div>
 			</div>
-			<!-- end Manager table card -->
+			<!-- end Employee table card -->
 
 		</div>
 		<!-- end Container -->

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -50,71 +52,46 @@
 							<span>Employee </span>List
 						</h3>
 					</div>
-					<!-- Manager Table -->
-					<table class="table table-striped table-hover">
+					<!-- Employee Table -->
+					<table class="table table-striped table-hover" data-toggle="table"
+						data-search="true" data-show-columns="true" data-pagination="true">
 						<thead>
 							<tr>
-								<th data-field="id">ID</th>
-								<th data-field="firstName" scope="col">First name</th>
-								<th data-field="lastName" scope="col">Last Name</th>
-								<th data-field="title" scope="col">Title</th>
-								<th data-field="manager" scope="col">Manager</th>
+								<th data-sortable="true" data-field="id" data-field="id">ID</th>
+								<th data-sortable="true" data-field="firstName" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+								<th data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+								<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
+								<th data-sortable="true" data-field="startDater" scope="col"><spring:message code="employeelist.date" /></th>
+								<th data-sortable="true" data-field="manager" scope="col">Manager</th>
 								<th data-field="action" scope="col">Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-
-
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-
-							<tr>
-								<th scope="row">2</th>
-								<td>Alice</td>
-								<td>Cooper</td>
-								<td>Treasurer</td>
-								<td>Mark Otto</td>
-								<td><a class="btn btn-outline-secondary btn-sm"
-									href="editEmployee" role="button">Edit</a> <a
-									class="btn btn-outline-secondary btn-sm" href="#" role="button">Delete</a></td>
-							</tr>
-						</tbody>
+							<tbody>
+						<c:forEach var="list" items="${list}">
+								<tr>
+									<td><c:out value="${list.empID}" /></td>
+									<td><c:out value="${list.firstName}" /></td>
+									<td><c:out value="${list.lastName}" /></td>
+									<td><c:out value="${list.title}" /></td>
+									<td><c:out value="${list.startDate}" /></td>
+									<td><c:out value="${list.supEmployee}" /></td>
+									<td><a class="btn btn-outline-secondary btn-sm"
+										href="editEmployee?empID=${list.empID}" role="button"><spring:message code="employeelist.edit" /></a>
+										<input id="empID" name="empID" type="hidden"
+										value="${list.empID}" /> <a
+										class="btn btn-outline-secondary btn-sm"
+										href="delete?empID=${list.empID}"> <spring:message code="employeelist.delete" /></a> <input
+										id="empID" name="empID" type="hidden" value="${list.empID}" />
+								</tr>
+						</c:forEach>
+							</tbody>
 					</table>
-					<!-- End manager Table -->
-					<a class="btn btn-outline-primary" href="addEmployee" role="button">Ajouter
-						Employee</a>
+					<!-- End Employee Table -->
+					<a class="btn btn-outline-primary" href="addEmployee" role="button"><spring:message code="employee.ajout" /></a>
 
 				</div>
 			</div>
-			<!-- end Manager table card -->
+			<!-- end Employee table card -->
 
 		</div>
 		<!-- end Container -->
@@ -147,7 +124,17 @@
 	<script
 		src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
 
-
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 	<!-- Option 2: Separate Popper and Bootstrap JS -->
 	<!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

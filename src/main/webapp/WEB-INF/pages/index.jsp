@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,43 +40,68 @@
 		<div class="content">
 
 			<!-- 		WELCOME CARD -->
-			<div class="card homePageCard">
-				<div class="card-body">
+			<div class="row card-index">
+				<div class="card homePageCard col-12 col-lg-6">
+					<div class="card-body">
 
-					<div class="about-section paddingTB60 gray-bg">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-7 col-sm-6">
-									<div class="about-title clearfix">
-										<h1>
-											Bienvenue à <span>GestionRH</span>
-										</h1>
-										<h3>Lorem ipsum dolor sit amet</h3>
-										<p class="about-paddingB">Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit. Donec aliquet dolor libero, eget
-											venenatis mauris finibus dictum. Vestibulum quis elit eget
-											neque porttitor congue non sit amet dolor. Proin pretium
-											purus a lorem ornare</p>
-										<p>sed lobortis pulvinar. Integer laoreet mi id eros porta
-											euismod. Suspendisse potenti. Nulla eros mauris, convallis et
-											sem tempus, viverra hendrerit sapien</p>
+						<div class="about-section paddingTB60 gray-bg">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-7 col-sm-6 col-lg-12">
+										<div class="about-title clearfix">
+											<h1>
+												<spring:message code="index.welcome" /> <span>GestionRH</span>
+											</h1>
+											<h3>Lorem ipsum dolor sit amet</h3>
+											<p class="about-paddingB">Lorem ipsum dolor sit amet,
+												consectetur adipiscing elit. Donec aliquet dolor libero,
+												eget venenatis mauris finibus dictum. Vestibulum quis elit
+												eget neque porttitor congue non sit amet dolor. Proin
+												pretium purus a lorem ornare</p>
+											<p>sed lobortis pulvinar. Integer laoreet mi id eros
+												porta euismod. Suspendisse potenti. Nulla eros mauris,
+												convallis et sem tempus, viverra hendrerit sapien</p>
 
+										</div>
 									</div>
-								</div>
-								<div class="col-md-5 col-sm-6">
-									<div class="about-img">
-										<img
-											src="https://devitems.com/preview/appmom/img/mobile/2.png"
-											alt="">
+									<div class="col-md-5 col-sm-6 col-lg-12">
+										<div class="about-img">
+											<img
+												src="https://devitems.com/preview/appmom/img/mobile/2.png"
+												alt="">
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
 
 				</div>
+				<div class="card card-coffe col-6 col-lg-3">
+					<div class="card-body">
+					
+							<div class="coffee-header">
+								<div class="coffee-header__buttons coffee-header__button-one"></div>
+								<div class="coffee-header__buttons coffee-header__button-two"></div>
+								<div class="coffee-header__display"></div>
+								<div class="coffee-header__details"></div>
+							</div>
+							<div class="coffee-medium">
+								<div class="coffe-medium__exit"></div>
+								<div class="coffee-medium__arm"></div>
+								<div class="coffee-medium__liquid"></div>
+								<div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+								<div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+								<div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+								<div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+								<div class="coffee-medium__cup"></div>
+							</div>
+							<div class="coffee-footer"></div>
+						</div>
+			
+				</div>
 			</div>
-
 			<!-- 		END WELCOME CAR -->
 
 			<!-- Button trigger modal -->
@@ -95,25 +121,24 @@
 						<div class="modal-body">
 							<form>
 								<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Email
-										address</label> <input type="email" class="form-control"
+									<label for="exampleInputEmail1" class="form-label"><spring:message code="login.email" /></label> <input type="email" class="form-control"
 										id="exampleInputEmail1" aria-describedby="emailHelp">
-									<div id="emailHelp" class="form-text">We'll never share
-										your email with anyone else.</div>
+									<div id="emailHelp" class="form-text"><spring:message code="login.text" /></div>
 								</div>
 								<div class="mb-3">
-									<label for="exampleInputPassword1" class="form-label">Password</label>
+									<label for="exampleInputPassword1" class="form-label"><spring:message code="login.password" /></label>
 									<input type="password" class="form-control"
 										id="exampleInputPassword1">
 								</div>
 								<div class="mb-3 form-check">
 									<input type="checkbox" class="form-check-input"
 										id="exampleCheck1"> <label class="form-check-label"
-										for="exampleCheck1">Check me out</label>
+										for="exampleCheck1"><spring:message code="login.check" /></label>
 								</div>
 								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">Close</button>
-								<a class="btn btn-primary" href="managerList" type="submit "role="button">Login</a>
+									data-bs-dismiss="modal"><spring:message code="login.close" /></button>
+								<a class="btn btn-primary" href="managerList" type="submit "
+									role="button"><spring:message code="login.login" /></a>
 							</form>
 						</div>
 					</div>
