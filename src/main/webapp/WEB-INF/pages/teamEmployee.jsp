@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!doctype html>
 <html lang="en">
@@ -9,7 +10,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<!-- FONT -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet">
 <!-- custome CSS -->
 <link rel="stylesheet" type="text/css" href="styles/employeeList.css" />
 <script type="javascript" src="js/manager.js"></script>
@@ -30,7 +35,7 @@
 <link
 	href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css"
 	rel="stylesheet">
-<title>Employees List</title>
+<title>Parametres Employees</title>
 </head>
 <body>
 	<div class="page">
@@ -41,58 +46,47 @@
 
 		<div class="content">
 
-
-
 			<!-- Manager table Card -->
-
 			<div class="card card-employee">
 				<div class="card-body">
 					<div class="input-group mb-3">
 						<h3>
-							<span>Employee </span>List
+							<span> ${employeeId}'s </span> team
 						</h3>
 					</div>
 					<!-- Employee Table -->
-					<table class="table table-striped table-hover" data-toggle="table"
+					<form:form>
+						<table class="table table-striped table-hover" data-toggle="table"
 						data-search="true" data-show-columns="true" data-pagination="true">
-						<thead>
-							<tr>
-								<th data-sortable="true" data-field="id" data-field="id">ID</th>
-								<th data-sortable="true" data-field="firstName"  data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
-								<th data-sortable="true" data-field="lastName" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
-								<th data-sortable="true" data-field="title"  data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
-								<th data-sortable="true" data-field="startDater"  data-field="startDater"scope="col"><spring:message code="employeelist.date" /></th>
-								<th data-sortable="true" data-field="manager" data-field="manager" scope="col">Manager</th>
-								<th data-field="action" scope="col">Action</th>
-							</tr>
-						</thead>
-							<tbody>
-						<c:forEach var="list" items="${list}">
+							<thead>
 								<tr>
-									<td><c:out value="${list.empID}" /></td>
-									<td><c:out value="${list.firstName}" /></td>
-									<td><c:out value="${list.lastName}" /></td>
-									<td><c:out value="${list.title}" /></td>
-									<td><c:out value="${list.startDate}" /></td>
-									<td><c:out value="${list.supEmployee}" /></td>
-									<td><a class="btn btn-outline-secondary btn-sm"
-										href="editEmployee?empID=${list.empID}" role="button"><spring:message code="employeelist.edit" /></a>
-										<input id="empID" name="empID" type="hidden"
-										value="${list.empID}" /> <a
-										class="btn btn-outline-secondary btn-sm"
-										href="delete?empID=${list.empID}"> <spring:message code="employeelist.delete" /></a> <input
-										id="empID" name="empID" type="hidden" value="${list.empID}" />
+									<th data-sortable="true" data-field="id">ID</th>
+									<th  data-sortable="true" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
+									<th  data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
+									<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
+									<th data-sortable="true" data-field="date" scope="col"><spring:message code="employeelist.date" /></th>
+								
 								</tr>
-						</c:forEach>
-							</tbody>
-					</table>
-					<!-- End Employee Table -->
-					<a class="btn btn-outline-primary" href="addEmployee" role="button"><spring:message code="employee.ajout" /></a>
+							</thead>
 
+							<tbody>
+								<c:forEach var="listTeam" items="${listTeam}">
+									<tr>
+										<td data-field="id"><c:out value="${listTeam.empID}" /></td>
+										<td data-field="firstName"><c:out value="${listTeam.firstName}" /></td>
+										<td data-field="lastName"><c:out value="${listTeam.lastName}" /></td>
+										<td data-field="title"><c:out value="${listTeam.title}" /></td>
+										<td data-field="date" ><c:out value="${listTeam.startDate}" /></td>
+										
+									</tr>
+								</c:forEach>
+
+							</tbody>
+						</table>
+			
+					</form:form>
 				</div>
 			</div>
-			<!-- end Employee table card -->
-
 		</div>
 		<!-- end Container -->
 
@@ -142,3 +136,6 @@
     -->
 </body>
 </html>
+
+
+
