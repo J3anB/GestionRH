@@ -62,6 +62,7 @@
 								<th data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
 								<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
 								<th data-sortable="true" data-field="startDater" scope="col"><spring:message code="employeelist.date" /></th>
+								<th  scope="col">Action</th>
 								<!-- <th data-field="manager" scope="col">Manager</th> -->
 							</tr>
 						</thead>
@@ -74,6 +75,10 @@
 									<td><c:out value="${listMana.lastName}" /></td>
 									<td><c:out value="${listMana.title}" /></td>
 									<td><c:out value="${listMana.startDate}" /></td>
+									<td><a class="btn btn-outline-secondary btn-sm"
+										href="teamEmployee?empID=${listMana.empID}" role="button"><spring:message code="employeelist.team" /></a>
+										<input id="empID" name="empID" type="hidden"
+										value="${listMana.empID}" /></td>
 								</tr>
 						</c:forEach>
 						</tbody>

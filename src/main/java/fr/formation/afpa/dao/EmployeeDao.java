@@ -66,6 +66,11 @@ public class EmployeeDao implements IEmployeeDao {
 	}
 	
 	@Override
+	public List<Employee> findTeam(Integer id){
+		return em.createQuery("select emp from Employee emp where supEmployee is " + id).getResultList();
+	}
+	
+	@Override
 	public Integer save(Employee e) {
 		em.persist(e);
 		return e.getEmpID();

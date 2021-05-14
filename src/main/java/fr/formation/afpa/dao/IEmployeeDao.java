@@ -10,7 +10,7 @@ public interface IEmployeeDao {
 		List<Employee> findAll();
 		List<Employee> findManager();
 		List<Employee> findOrphans();
-		
+		List<Employee> findTeam(Integer id);
 		//Create
 		Integer save(Employee e);
 		
@@ -26,4 +26,5 @@ public interface IEmployeeDao {
 		void beginTransaction();
 		void commitAndCloseTransaction();
 		void commitTransaction();
+
 }

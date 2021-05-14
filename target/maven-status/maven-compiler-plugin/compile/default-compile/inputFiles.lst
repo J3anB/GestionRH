@@ -1,14 +1,12 @@
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\config\ApplicationInitializer.java
+C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\config\WebMvcConfig.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\domain\Employee.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\domain\Department.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\controller\MainController.java
-C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\domain\Individual.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\interceptor\LogInterceptor.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\config\ApplicationConfigAdapter.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\dao\IEmployeeDao.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\service\EmployeeService.java
-C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\config\WebMvcConfig.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\domain\Customer.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\service\IEmployeeService.java
-C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\app\App.java
 C:\Users\Jean\git\GestionRH\src\main\java\fr\formation\afpa\dao\EmployeeDao.java

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import fr.formation.afpa.domain.Employee;
 import fr.formation.afpa.service.EmployeeService;
@@ -175,6 +175,17 @@ public class MainController {
 		model.addAttribute("listOprh", list);
 
 		return "parametres";
+	}
+	
+	@GetMapping("/teamEmployee")
+	public String teamEmployee(Model model, @RequestParam(name="empID") Integer empID) {
+		Employee employeeId = service.findById(empID);
+		model.addAttribute("employeeId", employeeId);
+//		
+//		
+			List<Employee> listTeam = service.findTeam(empID);
+			model.addAttribute("listTeam", listTeam);
+		return "teamEmployee";
 	}
 
 	// END REDIRECT CONTROLLERS
