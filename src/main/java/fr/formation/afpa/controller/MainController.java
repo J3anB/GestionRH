@@ -1,6 +1,7 @@
 package fr.formation.afpa.controller;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -19,7 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import fr.formation.afpa.config.EmployeeValidator;
 import fr.formation.afpa.domain.Employee;
 import fr.formation.afpa.service.EmployeeService;
 
@@ -29,6 +33,15 @@ public class MainController {
 
 	EmployeeService service;
 
+	@Autowired
+	EmployeeValidator validator;
+	
+	// methode qui se lance dès le début 
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(validator);
+    }
+	
 	@InitBinder
 	public void dateBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -67,9 +80,13 @@ public class MainController {
 	}
 
 	@GetMapping("/managerList")
-	public String managerList(Model model) {
+	public String managerList(Model model, Integer empID) {
 		List<Employee> list = service.findManager();
 		model.addAttribute("listMana", list);
+		
+		// TEAMLIST  with manager ID 
+		List<Employee> listTeam = service.findTeam(empID);
+		model.addAttribute("listTeam", listTeam);
 		return "manager";
 	}
 
@@ -88,7 +105,7 @@ public class MainController {
 	}
 
 	@PostMapping(path = "/save")
-	public String saveEmployee(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model,
+	public String saveEmployee(@ModelAttribute("employee") @Validated Employee employee, BindingResult result, ModelMap model,  Errors errors,
 			@RequestParam(value = "supEmployee", required = false) Integer supEmployee) {
 
 		Employee newEmp = new Employee();
@@ -97,7 +114,19 @@ public class MainController {
 		Employee newManaId = service.findById(supEmployee);
 		log.debug(newManaId);
 
-		// set Attr
+		// validation 
+	
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "startDate", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "supEmployee", "field.required");
+		
+		if(result.hasErrors()) {	
+			List<Employee> listMana = service.findManager();
+			model.addAttribute("listMana", listMana);
+			return "addEmployee";
+		}
 		newEmp.setFirstName(employee.getFirstName());
 		newEmp.setLastName(employee.getLastName());
 		newEmp.setTitle(employee.getTitle());
@@ -110,20 +139,6 @@ public class MainController {
 		return "redirect:/employeeList";
 	}
 
-//	@GetMapping("/editEmployee")
-//	public ModelAndView editEmployee(@RequestParam(name = "empID") Integer empID, Model model) {
-//
-//		List<Employee> listMana = service.findManager();
-//		model.addAttribute("listMana", listMana);
-//		Employee edEmp = service.findById(empID);
-//		
-//		ModelAndView mav = new ModelAndView("editEmployee");
-//	
-//		log.debug(edEmp);
-////		model.addAttribute("employee", edEmp);
-//		mav.addObject("employee", edEmp);
-//		return mav;
-//	}	
 	
 	@GetMapping(path="/editEmployee")
 	public String editEmployee(Model model, @RequestParam(name="empID") Integer empID) {
@@ -145,6 +160,7 @@ public class MainController {
 		Employee newManaId = service.findById(supEmployee);
 			
 		// set attr
+		
 		employee.setFirstName(employee.getFirstName());
 		employee.setLastName(employee.getLastName());
 		employee.setTitle(employee.getTitle());
@@ -179,14 +195,28 @@ public class MainController {
 	
 	@GetMapping("/teamEmployee")
 	public String teamEmployee(Model model, @RequestParam(name="empID") Integer empID) {
-		Employee employeeId = service.findById(empID);
-		model.addAttribute("employeeId", employeeId);
-//		
-//		
+			// Manager ID to display firstName & lastName in teamList
+			Employee employeeId = service.findById(empID);
+			model.addAttribute("employeeId", employeeId);
+
+			// TEAMLIST  with manager ID 
 			List<Employee> listTeam = service.findTeam(empID);
 			model.addAttribute("listTeam", listTeam);
 		return "teamEmployee";
 	}
+	
+	@GetMapping("/teamList")
+	public String teamList(Model model, @RequestParam(name="empID") Integer empID) {
+			// Manager ID to display firstName & lastName in teamList
+			Employee employeeId = service.findById(empID);
+			model.addAttribute("employeeId", employeeId);
+
+			// TEAMLIST  with manager ID 
+			List<Employee> manaTeam = service.findTeam(empID);
+			model.addAttribute("manaTeam", manaTeam);
+		return "teamList";
+	}
+	
 
 	// END REDIRECT CONTROLLERS
 

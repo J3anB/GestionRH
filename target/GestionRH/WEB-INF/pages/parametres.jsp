@@ -72,11 +72,11 @@
 							<tbody>
 								<c:forEach var="listOprh" items="${listOprh}">
 									<tr>
-										<td><c:out value="${listOprh.empID}" /></td>
-										<td><c:out value="${listOprh.firstName}" /></td>
-										<td><c:out value="${listOprh.lastName}" /></td>
-										<td><c:out value="${listOprh.title}" /></td>
-										<td><c:out value="${listOprh.startDate}" /></td>
+										<td data-value="id"><c:out value="${listOprh.empID}" /></td>
+										<td data-value="firstName"><c:out value="${listOprh.firstName}" /></td>
+										<td data-value="lastName"><c:out value="${listOprh.lastName}" /></td>
+										<td data-value="title"><c:out value="${listOprh.title}" /></td>
+										<td data-value="date" ><c:out value="${listOprh.startDate}" /></td>
 										<td><select class="form-select form-select-sm col-7"
 											aria-label=".form-select-sm example">
 												<option selected>Manager</option>

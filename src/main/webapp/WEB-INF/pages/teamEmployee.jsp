@@ -51,7 +51,7 @@
 				<div class="card-body">
 					<div class="input-group mb-3">
 						<h3>
-							<span> ${employeeId}'s </span> team
+							<span> ${employeeId}</span>'s team
 						</h3>
 					</div>
 					<!-- Employee Table -->
@@ -64,8 +64,7 @@
 									<th  data-sortable="true" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
 									<th  data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
 									<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
-									<th data-sortable="true" data-field="date" scope="col"><spring:message code="employeelist.date" /></th>
-								
+									<th data-sortable="true" data-field="date" scope="col"><spring:message code="employeelist.date" /></th>							
 								</tr>
 							</thead>
 

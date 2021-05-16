@@ -21,6 +21,14 @@
 	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
 	crossorigin="anonymous">
 
+<!-- Insérer cette balise "link" après celle de Bootstrap -->
+<link rel="stylesheet"
+	href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+<!-- Insérer cette balise "script" après celle de Bootstrap -->
+<script
+	src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -53,34 +61,56 @@
 						</h3>
 					</div>
 					<!-- Manager Table -->
-					<table class="table table-striped table-hover " data-toggle="table"
+					<table class="table table-striped table-hover" data-toggle="table"
 						data-search="true" data-show-columns="true" data-pagination="true">
 						<thead>
 							<tr>
-								<th data-sortable="true" data-field="id" data-field="id">ID</th>
-								<th data-sortable="true" data-field="firstName" scope="col"><spring:message code="employeelist.prenom" /></th>
-								<th data-sortable="true" data-field="lastName" scope="col"><spring:message code="employeelist.nom" /></th>
-								<th data-sortable="true" data-field="title" scope="col"><spring:message code="employeelist.titre" /></th>
-								<th data-sortable="true" data-field="startDater" scope="col"><spring:message code="employeelist.date" /></th>
+
+							
+								<th data-sortable="true" data-field="id">ID</th>
+								<th data-sortable="true" data-field="firstName" scope="col"><spring:message
+										code="employeelist.prenom" /></th>
+								<th data-sortable="true" data-field="lastName" scope="col"><spring:message
+										code="employeelist.nom" /></th>
+								<th data-sortable="true" data-field="title" scope="col"><spring:message
+										code="employeelist.titre" /></th>
+								<th data-sortable="true" data-field="startDater" scope="col"><spring:message
+										code="employeelist.date" /></th>
+								<th scope="col">Action</th>
 								<!-- <th data-field="manager" scope="col">Manager</th> -->
 							</tr>
 						</thead>
-							<tbody>
-						<c:forEach var="listMana" items="${listMana}">
+						<tbody>
+							<c:forEach var="listMana" items="${listMana}">
 								<!--  main table 1-->
 								<tr>
+
 									<td><c:out value="${listMana.empID}" /></td>
 									<td><c:out value="${listMana.firstName}" /></td>
 									<td><c:out value="${listMana.lastName}" /></td>
 									<td><c:out value="${listMana.title}" /></td>
 									<td><c:out value="${listMana.startDate}" /></td>
+									<td><a class="btn btn-outline-secondary btn-sm"
+										href="teamEmployee?empID=${listMana.empID}" role="button"><spring:message
+												code="employeelist.team" /></a> <input id="empID" name="empID"
+										type="hidden" value="${listMana.empID}" /></td>
 								</tr>
-						</c:forEach>
+	
+							</c:forEach>
 						</tbody>
 					</table>
+
 					<!-- End manager Table -->
 				</div>
 			</div>
+
+	
+
+
+
+
+			<!-- 			SECOND TABLE NESTED TABLE TEST -->
+
 			<!-- end Manager table card -->
 		</div>
 		<!-- end Container -->
@@ -100,6 +130,8 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
 		crossorigin="anonymous"></script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script

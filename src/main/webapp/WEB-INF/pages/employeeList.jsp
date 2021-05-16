@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,8 +42,6 @@
 
 		<div class="content">
 
-
-
 			<!-- Manager table Card -->
 
 			<div class="card card-employee">
@@ -78,9 +77,10 @@
 									<td><a class="btn btn-outline-secondary btn-sm"
 										href="editEmployee?empID=${list.empID}" role="button"><spring:message code="employeelist.edit" /></a>
 										<input id="empID" name="empID" type="hidden"
-										value="${list.empID}" /> <a
-										class="btn btn-outline-secondary btn-sm"
-										href="delete?empID=${list.empID}"> <spring:message code="employeelist.delete" /></a> <input
+										value="${list.empID}" /> 
+										
+										<a class="btn btn-outline-secondary btn-sm" data-href="${list.empID}"
+										href="delete?empID=${list.empID}"> <spring:message code="employeelist.delete" /> 	</a> <input
 										id="empID" name="empID" type="hidden" value="${list.empID}" />
 								</tr>
 						</c:forEach>
@@ -95,6 +95,8 @@
 
 		</div>
 		<!-- end Container -->
+
+
 
 		<!-- footer -->
 		<jsp:include page="footer.jsp" />

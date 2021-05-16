@@ -4,7 +4,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#" style="color: #0080ff">GestionRH</a>
+		<a class="navbar-brand" href="index" style="color: #0080ff">GestionRH</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -15,8 +15,7 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 				<li class="nav-item"><a class="nav-link " aria-current="page"
-					href="index"><spring:message code="navbar.accueil" /></a></li>
-					
+					href="index"><spring:message code="navbar.accueil" /></a></li>		
 				<li class="nav-item"><a class="nav-link " aria-current="page"
 					href="contactUs"><spring:message code="navbar.contact" /></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
