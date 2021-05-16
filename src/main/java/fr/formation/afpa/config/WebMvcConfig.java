@@ -1,6 +1,7 @@
 package fr.formation.afpa.config;
 
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -14,7 +15,7 @@ import fr.formation.afpa.interceptor.LogInterceptor;
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
-	private final Validator CustomerValidator = null;
+	private final Validator EmployeeValidator = null;
 	
 	
 	@Override
@@ -40,7 +41,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public Validator getValidator() {
     	
-		return CustomerValidator;
+		return EmployeeValidator;
 	}
 	
 }

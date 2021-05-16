@@ -36,7 +36,6 @@ public class EmployeeDao implements IEmployeeDao {
 	public void closeTransaction() {
 		em.close();
 	}
-
 	
 	@Override
 	public Employee findById(Integer id) {
