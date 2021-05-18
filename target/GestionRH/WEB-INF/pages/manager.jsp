@@ -49,8 +49,6 @@
 
 		<div class="content">
 
-
-
 			<!-- Manager table Card -->
 
 			<div class="card card-manager">

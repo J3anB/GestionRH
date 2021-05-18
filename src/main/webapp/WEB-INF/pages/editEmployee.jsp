@@ -71,41 +71,51 @@
 			<div class="card cardAddEmployee col-12 col-lg-6">
 				<div class="card-body">
 
-					<form:form action="update" method="post" modelAttribute="employee">
+					<form:form action="update" method="post"
+						modelAttribute="editEmployee">
 						<div class="input-group mb-3">
 							<h3>
-								<spring:message code="editemployee.title" /> <span>Employee</span>
+								<spring:message code="editemployee.title" />
+								<span>Employee</span>
 							</h3>
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.prenom" /></span>
+							<form:input class="idform"  path="empID" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1"><spring:message
+									code="editemployee.prenom" /></span>
 							<form:input type="text" class="form-control" path="firstName" />
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.nom" /></span>
+							<span class="input-group-text" id="basic-addon1"><spring:message
+									code="editemployee.nom" /></span>
 							<form:input type="text" class="form-control" path="lastName" />
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.titre" /></span>
+							<span class="input-group-text" id="basic-addon1"><spring:message
+									code="editemployee.titre" /></span>
 							<form:input type="text" class="form-control" placeholder="Titre"
 								aria-label="Titre" aria-describedby="basic-addon1" path="title" />
 						</div>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="basic-addon1"><spring:message code="editemployee.startdate" /></span>
+							<span class="input-group-text" id="basic-addon1"><spring:message
+									code="editemployee.startdate" /></span>
 							<form:input type="date" class="form-control" path="startDate" />
 						</div>
-							<div class="input-group mb-3">
+						<div class="input-group mb-3">
 
 							<form:select class="form-select form-select-sm col-7"
-							aria-label=".form-select-sm example" path="supEmployee"> 
- 								<option value="0"><spring:message code="editemployee.manager" /></option> 
-								<c:forEach var="supEmployee" items="${listMana}"> 
-									<option value="${supEmployee.empID}"> 
-										<c:out value="${supEmployee}" /> 
+								aria-label=".form-select-sm example" path="supEmployee">
+								<option value="0"><spring:message
+										code="editemployee.manager" /></option>
+								<c:forEach var="supEmployee" items="${listMana}">
+									<option value="${supEmployee.empID}">
+										<c:out value="${supEmployee}" />
 									</option>
 								</c:forEach>
 							</form:select>
-							
+
 						</div>
 
 						<td colspan="2"><input class="btn btn-outline-primary"

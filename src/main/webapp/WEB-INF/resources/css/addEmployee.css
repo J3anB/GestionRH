@@ -29,3 +29,7 @@
 .cardAddEmployee h3 span{
 	color: #0080ff;
 }
+
+.card .idform{
+	display: none;
+}

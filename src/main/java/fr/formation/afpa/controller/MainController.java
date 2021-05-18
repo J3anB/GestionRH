@@ -1,7 +1,6 @@
 package fr.formation.afpa.controller;
 
 import java.text.SimpleDateFormat;
-
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.afpa.config.EmployeeValidator;
 import fr.formation.afpa.domain.Employee;
 import fr.formation.afpa.service.EmployeeService;
 
@@ -33,15 +30,6 @@ public class MainController {
 
 	EmployeeService service;
 
-	@Autowired
-	EmployeeValidator validator;
-	
-	// methode qui se lance dès le début 
-    @InitBinder
-    protected void initBinder(WebDataBinder binder) {
-        binder.setValidator(validator);
-    }
-	
 	@InitBinder
 	public void dateBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -105,7 +93,7 @@ public class MainController {
 	}
 
 	@PostMapping(path = "/save")
-	public String saveEmployee(@ModelAttribute("employee") @Validated Employee employee, BindingResult result, ModelMap model,  Errors errors,
+	public String saveEmployee(@ModelAttribute("employee")  Employee employee, BindingResult result, ModelMap model,  Errors errors,
 			@RequestParam(value = "supEmployee", required = false) Integer supEmployee) {
 
 		Employee newEmp = new Employee();
@@ -114,19 +102,11 @@ public class MainController {
 		Employee newManaId = service.findById(supEmployee);
 		log.debug(newManaId);
 
-		// validation 
+
 	
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "startDate", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "supEmployee", "field.required");
 		
-		if(result.hasErrors()) {	
-			List<Employee> listMana = service.findManager();
-			model.addAttribute("listMana", listMana);
-			return "addEmployee";
-		}
+		
+
 		newEmp.setFirstName(employee.getFirstName());
 		newEmp.setLastName(employee.getLastName());
 		newEmp.setTitle(employee.getTitle());
@@ -144,8 +124,8 @@ public class MainController {
 	public String editEmployee(Model model, @RequestParam(name="empID") Integer empID) {
 		
 		Employee employee = service.findById(empID);
-		model.addAttribute("employee", employee);
-		
+		model.addAttribute("editEmployee", employee);
+		System.out.println(empID);
 		List<Employee> listMana = service.findManager();
 		model.addAttribute("listMana", listMana);
 		
@@ -153,12 +133,15 @@ public class MainController {
 	}
 
 	@PostMapping(path = "/update")
-	public String updateEmployee(@ModelAttribute("employee") Employee employee, BindingResult result,
+	public String updateEmployee(@ModelAttribute("editEmployee") Employee employee, BindingResult result,
 			ModelMap model, @RequestParam(value = "supEmployee", required = false) Integer supEmployee) {
+		
+		Integer empId = employee.getEmpID();
+		System.out.println(empId);
 		
 		// find manager ID 
 		Employee newManaId = service.findById(supEmployee);
-			
+
 		// set attr
 		
 		employee.setFirstName(employee.getFirstName());
